@@ -16,7 +16,7 @@ export default function RootLayout({ children, }: Readonly<{ children: React.Rea
     <html lang="en">
       <body className={inter.className}>
          <Navbar />
-         <div className="absolute left-[230px] right-0 bg-page-color bottom-0 top-16 p-4" >
+         <div className="absolute left-0 xl:left-[220px] right-0 bg-page-color bottom-0 top-16 p-4" >
               {children}
          </div>
               <Menu />

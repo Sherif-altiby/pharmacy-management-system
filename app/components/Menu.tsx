@@ -1,7 +1,6 @@
 "use client"
 
 import Link from "next/link"
-import { usePathname } from "next/navigation";
 
 import { FaStaffSnake } from "react-icons/fa6";
 import { MdAddCircle } from "react-icons/md";
@@ -12,10 +11,12 @@ import { FaCartArrowDown } from "react-icons/fa";
 import { FaSquarePollVertical } from "react-icons/fa6";
 import { TbWritingSign } from "react-icons/tb";
 
+import { useState } from "react";
+
 
 const items = [
      {title: "أضف دواء", link:'add-medicene', icon: MdAddCircle},
-     {title: "البحث عن دواء", link:'serach-medicene', icon: FaSearch},
+     {title: "البحث عن دواء", link:'search-medicene', icon: FaSearch},
      {title: "حذف دواء", link:'delete-medicene', icon: MdDelete}, 
      {title: "تعديل دواء", link:'edit-medicene', icon: AiFillEdit}, 
      {title: "بيع دواء", link:'sell-medicene', icon: FaCartArrowDown},
@@ -25,8 +26,14 @@ const items = [
 
 const Menu = () => {
 
+  const [menu, setMenu] = useState(false);
+
+  const handleMenu = () => {
+    setMenu(!menu);
+  }
+
   return (
-    <div className="fixed top-0 left-0 bg-menu-color w-[230px] bottom-0 text-white" >
+    <div className="fixed top-0 left-[-220px] xl:left-[0] bg-menu-color w-[220px] bottom-0 text-white" >
         <div>
             <div className="flex items-center justify-center space-x-3 border-b  h-16" >
                  <div className="text-3xl" ><FaStaffSnake /></div>

@@ -15,7 +15,7 @@ const Chart = ( {title, labelsVlue, dataValue}: ChartProps ) => {
     labels: labelsVlue,
     datasets: [
       {
-        label: 'كشف المبيعات',
+        label: 'الاحصائيات',
         data: dataValue,
         backgroundColor: 'rgba(75, 192, 192, 0.2)',
         borderColor: 'rgba(75, 192, 192, 1)',
