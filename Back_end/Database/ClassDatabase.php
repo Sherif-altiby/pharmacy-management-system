@@ -42,6 +42,13 @@ class Database
         $stmt->execute(['%' . $searchValue . '%']);
         return $stmt->fetchAll(PDO::FETCH_COLUMN);
     }
+    public function searchLike_star($table, $searchColumn, $searchValue)
+{
+    $sql = "SELECT * FROM $table WHERE $searchColumn LIKE ?";
+    $stmt = $this->pdo->prepare($sql);
+    $stmt->execute(['%' . $searchValue . '%']);
+    return $stmt->fetchAll(PDO::FETCH_ASSOC);
+}
 
     public function searchLikeWithCondition($table, $column, $searchColumn, $searchValue, $conditionColumn, $conditionValue)
     {
