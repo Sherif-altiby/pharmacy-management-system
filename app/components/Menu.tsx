@@ -11,8 +11,6 @@ import { FaCartArrowDown } from "react-icons/fa";
 import { FaSquarePollVertical } from "react-icons/fa6";
 import { TbWritingSign } from "react-icons/tb";
 
-import { useState } from "react";
-
 
 const items = [
      {title: "أضف دواء", link:'add-medicene', icon: MdAddCircle},
@@ -24,29 +22,28 @@ const items = [
      {title: "بيع الشكوك", link:'sell-shokok', icon: TbWritingSign},
      {title: "كشف مبيعات الشكوك", link:'statics-shokok', icon: FaSquarePollVertical}]
 
-const Menu = () => {
-
-  const [menu, setMenu] = useState(false);
-
-  const handleMenu = () => {
-    setMenu(!menu);
-  }
+const Menu = ( {closeMenu, menuBlock}: {closeMenu: () => void, menuBlock: boolean} ) => {
 
   return (
-    <div className="fixed top-0 left-[-220px] xl:left-[0] bg-menu-color w-[220px] bottom-0 text-white" >
+   <>
+    <div className={` ${menuBlock ? 'absolute top-16 right-0 left-0 z-30 bg-overlay bottom-0 ' : '' } `} onClick={closeMenu} ></div>
+    <div className={`fixed top-0 xl:left-[0] bg-white w-[220px] bottom-0 text-white ${menuBlock ? 'left-0' : 'left-[-220px]'} duration-300 z-50 `} >
         <div>
-            <div className="flex items-center justify-center space-x-3 border-b  h-16" >
+            <div className="flex items-center justify-center space-x-3 border-b text-btn-color h-16 shadow-sm" >
                  <div className="text-3xl" ><FaStaffSnake /></div>
-                 <p className="text-xl" > Pharmacy </p>
+                 <p className="text-xl" > Pharmacy </p> 
             </div>
             {items.map((item) => (
-                <Link href={item.link} key={item.title} className="px-2 py-5 cursor-pointer hover:bg-btn-color duration-150 flex items-center space-x-5 justify-end" >
-                      <p className="font-medium text-xl" > {item.title} </p>
-                      <div className="text-2xl" > {item.icon?  <item.icon /> : null} </div>
+                <Link href={item.link} key={item.title} onClick={closeMenu} className="pl-3 pr-6 block py-2 cursor-pointer" >
+                      <div className="text-btn-color flex gap-2 rounded-md duration-200 justify-end hover:bg-page-color p-2" >
+                         <p className="font-medium text-lg" > {item.title} </p>
+                         <div className="text-2xl" > {item.icon?  <item.icon /> : null} </div>
+                      </div>
                 </Link>
             ))}
         </div>
     </div>
+   </>
   )
 }
 

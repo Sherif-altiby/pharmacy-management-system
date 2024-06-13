@@ -14,9 +14,11 @@ const config: Config = {
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
       colors: {
-        "btn-color": "rgb(3 112 129)",
-        "page-color": "#f8f9fa",
-        "menu-color": "#1b5a90"
+        "btn-color": "#0808bd",
+        "page-color": "rgb(245, 245, 245)",
+        "title-color": "rgb(69 122 151)",
+        "card-bg": "#858587c4",
+        "overlay": "rgb(243 244 246 / 54%)",
       }
     },
   },

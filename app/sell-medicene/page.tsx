@@ -1,36 +1,38 @@
+import SectionHeader from "../components/SectionHeader"
+
 const EditeMedicene = () => {
     return (
       <div>
-        <h1 className="text-center text-3xl bg-gray-500 text-white py-2" > بيع أدوية </h1>
+        <SectionHeader title="بيع ادوية" />
         <div>
-          <form action="" className="flex flex-col w-1/2 mx-auto mt-8 bg-red-500 p-3 rounded-md" >
+          <form action="" className="flex flex-col w-full md:w-[600px] mx-auto mt-16 bg-card-bg p-3 rounded-md" >
                 <div className="flex items-center my-2 w-full flex-row-reverse justify-between " >
-                    <label className="w-[120px] text-right text-xl" htmlFor="name"> اسم الدواء </label>
-                    <input className="border-none outline-none text-xl p-2 text-right flex-grow rounded-md" type="text" id="name" placeholder="اسم الدواء" />
+                    <label className="w-[90px] md:w-[120px] text-right text-sm md:text-xl" htmlFor="name"> اسم الدواء </label>
+                    <input className="border-none outline-none text-sm md:text-xl p-2 text-right flex-grow rounded-md" type="text" id="name" placeholder="اسم الدواء" />
                 </div>
   
                <div className="flex items-center my-2 w-full flex-row-reverse justify-between " >
-                   <label className="w-[120px] text-right text-xl" htmlFor="price"> سعر العلبة </label>
-                   <input className="border-none outline-none text-xl p-2 text-right flex-grow rounded-md" type="number" id="price" placeholder="سعر العلبة" />
+                   <label className="w-[90px] md:w-[120px] text-right text-sm md:text-xl" htmlFor="price"> سعر العلبة </label>
+                   <input className="border-none outline-none text-sm md:text-xl p-2 text-right flex-grow rounded-md" type="number" id="price" placeholder="سعر العلبة" />
                </div>
   
                  <div className="flex items-center my-2 w-full flex-row-reverse justify-between " >
-                    <label className="w-[120px] text-right text-xl" htmlFor="price"> عدد العلب </label>
-                    <input className="border-none outline-none text-xl p-2 text-right flex-grow rounded-md" type="number" id="price" placeholder="عدد العلب" />
+                    <label className="w-[90px] md:w-[120px] text-right text-sm md:text-xl" htmlFor="price"> عدد العلب </label>
+                    <input className="border-none outline-none text-sm md:text-xl p-2 text-right flex-grow rounded-md" type="number" id="price" placeholder="عدد العلب" />
                  </div>
 
                  <div className="flex items-center my-2 w-full flex-row-reverse justify-between " >
-                    <label className="w-[120px] text-right text-xl" htmlFor="sharaet"> عدد الشرائط </label>
-                    <input className="border-none outline-none text-xl p-2 text-right flex-grow rounded-md" type="number" id="sharaet" placeholder="عدد الشرائط" />
+                    <label className="w-[90px] md:w-[120px] text-right text-sm md:text-xl" htmlFor="sharaet"> عدد الشرائط </label>
+                    <input className="border-none outline-none text-sm md:text-xl p-2 text-right flex-grow rounded-md" type="number" id="sharaet" placeholder="عدد الشرائط" />
                  </div>
 
                  <div className="flex items-center my-2 w-full flex-row-reverse justify-between " >
-                    <label className="w-[120px] text-right text-xl" htmlFor="sharaet-price"> سعر الشريط</label>
-                    <input className="border-none outline-none text-xl p-2 text-right flex-grow rounded-md" type="number" id="sharaet-price" placeholder="سعر الشريط "/>
+                    <label className="w-[90px] md:w-[120px] text-right text-sm md:text-xl" htmlFor="sharaet-price"> سعر الشريط</label>
+                    <input className="border-none outline-none text-sm md:text-xl p-2 text-right flex-grow rounded-md" type="number" id="sharaet-price" placeholder="سعر الشريط "/>
                  </div>
   
                 <div className="flex items-center my-2 w-full flex-row-reverse justify-between " >
-                    <label className="w-[120px] text-right text-xl" htmlFor="date"> تاريخ اليوم </label>
+                    <label className="w-[90px] md:w-[120px] text-right text-sm md:text-xl" htmlFor="date"> تاريخ اليوم </label>
                     <input className="border-none outline-none text-xl p-2 text-right flex-grow rounded-md" type="date" id="date"  />
                 </div>
 

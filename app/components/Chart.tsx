@@ -9,7 +9,7 @@ ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend)
 
 
 
-const Chart = ( {title, labelsVlue, dataValue}: ChartProps ) => {
+const Chart = ( {title, labelsVlue, dataValue, bgColors, borderColor}: ChartProps ) => {
  
   const data = {
     labels: labelsVlue,
@@ -17,8 +17,8 @@ const Chart = ( {title, labelsVlue, dataValue}: ChartProps ) => {
       {
         label: 'الاحصائيات',
         data: dataValue,
-        backgroundColor: 'rgba(75, 192, 192, 0.2)',
-        borderColor: 'rgba(75, 192, 192, 1)',
+        backgroundColor: bgColors,
+        borderColor: borderColor,
         borderWidth: 1,
       },
     ],
@@ -43,9 +43,9 @@ const Chart = ( {title, labelsVlue, dataValue}: ChartProps ) => {
   };
 
   return (
-    <div>
-      <h2 className='text-3xl text-center my-3' > {title} </h2>
-      <Bar data={data} options={options} className='bg-black h-[400px]' />
+    <div  >
+      <h2 className='text-3xl text-center mt-3' > {title} </h2>
+      <Bar data={data} options={options} className='h-[400px]' />
     </div>
   );
 };
