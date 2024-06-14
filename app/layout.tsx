@@ -19,9 +19,9 @@ export default function RootLayout({ children, }: Readonly<{ children: React.Rea
    
   return (
     <html lang="en">
-      <body className={`${inter.className} bg-page-color `}>
+      <body className={`${inter.className} bg-page-color dark:bg-zinc-900`}>
          <Navbar openMenu = {openMenu} />
-                  <div className="absolute left-0 xl:left-[220px] right-0 bg-page-color bottom-auto top-16 p-4" >
+                  <div className="absolute left-0 xl:left-[220px] right-0  bottom-auto top-16 p-4" >
                         {children}
                   </div>
           <Menu closeMenu={closeMenu} menuBlock= {menuBlock} />

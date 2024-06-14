@@ -83,7 +83,7 @@ const SearchMedicine: React.FC = () => {
               ))}
             </ul>
           ) : (
-            <p>لا توجد نتائج</p>
+            <p className='text-center text-xl bg-title-color text-white rounded-md mt-32 p-2' >لا توجد نتائج</p>
           )}
         </div>
       </div>

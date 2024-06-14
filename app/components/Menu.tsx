@@ -27,15 +27,15 @@ const Menu = ( {closeMenu, menuBlock}: {closeMenu: () => void, menuBlock: boolea
   return (
    <>
     <div className={` ${menuBlock ? 'absolute top-16 right-0 left-0 z-30 bg-overlay bottom-0 ' : '' } `} onClick={closeMenu} ></div>
-    <div className={`fixed top-0 xl:left-[0] bg-white w-[220px] bottom-0 text-white ${menuBlock ? 'left-0' : 'left-[-220px]'} duration-300 z-50 `} >
+    <div className={`fixed top-0 xl:left-[0] bg-white w-[220px] bottom-0 text-white ${menuBlock ? 'left-0' : 'left-[-220px]'} duration-300 z-50 dark:bg-black `} >
         <div>
-            <div className="flex items-center justify-center space-x-3 border-b text-btn-color h-16 shadow-sm" >
+            <div className="flex items-center justify-center space-x-3 text-btn-color dark:text-white h-16 shadow-sm dark:shadow-gray-500" >
                  <div className="text-3xl" ><FaStaffSnake /></div>
                  <p className="text-xl" > Pharmacy </p> 
             </div>
             {items.map((item) => (
                 <Link href={item.link} key={item.title} onClick={closeMenu} className="pl-3 pr-6 block py-2 cursor-pointer" >
-                      <div className="text-btn-color flex gap-2 rounded-md duration-200 justify-end hover:bg-page-color p-2" >
+                      <div className="text-btn-color flex gap-2 rounded-md duration-200 justify-end hover:bg-page-color p-2 dark:text-white dark:hover:text-black" >
                          <p className="font-medium text-lg" > {item.title} </p>
                          <div className="text-2xl" > {item.icon?  <item.icon /> : null} </div>
                       </div>

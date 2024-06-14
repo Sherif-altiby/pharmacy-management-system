@@ -2,3 +2,8 @@
 @tailwind components;
 @tailwind utilities;
  
+
+
+.mn-height{
+    height: calc(100vh - 64px);
+}

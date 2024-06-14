@@ -6,6 +6,7 @@ const config: Config = {
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
+  darkMode: 'class',
   theme: {
     extend: {
       backgroundImage: {
@@ -19,7 +20,8 @@ const config: Config = {
         "title-color": "rgb(69 122 151)",
         "card-bg": "#858587c4",
         "overlay": "rgb(243 244 246 / 54%)",
-      }
+        "dark-page-color": "#0000009c",
+            }
     },
   },
   plugins: [],

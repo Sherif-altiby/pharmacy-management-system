@@ -13,7 +13,7 @@ const mediceneBgColors = [ 'rgba(255, 99, 132, 0.2)', 'rgba(54, 162, 235, 0.2)',
 
 const page = () => {
   return (
-   <>
+   <div className="pb-14">
           <div className="flex gap-4 flex-col xl:flex-row justify-between items-center " >
                  <div className=" w-full xl:w-[500px] bg-white rounded-md p-3 " > <Chart title="كشف المبيعات" dataValue={sallesValues} labelsVlue={sallesLables} bgColors={sallesBgColors} borderColor={sallesBgColors}/> </div>
                  <div className=" w-full xl:w-[500px] bg-white rounded-md p-3 " > <Chart title="الادوية الاكثر مبيعا" dataValue={mediceneValues} labelsVlue={mediceneLables} bgColors={mediceneBgColors} borderColor={mediceneBgColors} /> </div>
@@ -27,7 +27,7 @@ const page = () => {
              <div className="w-full xl:w-[500px] bg-white rounded-md p-3" >  <PieChart /> </div>
              <div className="w-full xl:w-[500px] bg-white rounded-md p-3" >  <DoughnutChart /> </div>
          </div>
-   </>
+   </div>
   )
 }
 
