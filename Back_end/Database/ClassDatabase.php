@@ -37,14 +37,14 @@ class Database
 
     public function searchLike($table, $column, $searchColumn, $searchValue)
     {
-        $sql = "SELECT $column FROM $table WHERE $searchColumn LIKE ?";
+        $sql = "SELECT $column FROM $table WHERE $searchColumn LIKE ?  LIMIT 20";
         $stmt = $this->pdo->prepare($sql);
         $stmt->execute(['%' . $searchValue . '%']);
         return $stmt->fetchAll(PDO::FETCH_COLUMN);
     }
     public function searchLike_star($table, $searchColumn, $searchValue)
 {
-    $sql = "SELECT * FROM $table WHERE $searchColumn LIKE ?";
+    $sql = "SELECT * FROM $table WHERE $searchColumn LIKE ?  LIMIT 20";
     $stmt = $this->pdo->prepare($sql);
     $stmt->execute(['%' . $searchValue . '%']);
     return $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -119,6 +119,59 @@ class Database
         $stmt = $this->pdo->prepare($sql);
         return $stmt->execute([$searchValue, $newValue]);
     }
+
+
+
+    function getSalesStatistics() {
+        $query = "SELECT s.SalesID, s.MedicineID, s.Quantity_Sold, s.Total_Price, 
+                         DATE_FORMAT(s.Date, '%Y-%m') as month, m.name as MedicineName 
+                  FROM sales s
+                  JOIN medicine m ON s.MedicineID = m.ID";
+        $stmt = $this->pdo->prepare($query);
+        $stmt->execute();
+        $salesData = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    
+        $monthlySales = [];
+        $medicineSales = [];
+    
+        foreach ($salesData as $row) {
+            if (!isset($monthlySales[$row['month']])) {
+                $monthlySales[$row['month']] = 0;
+            }
+            $monthlySales[$row['month']] += $row['Total_Price'];
+    
+            if (!isset($medicineSales[$row['MedicineName']])) {
+                $medicineSales[$row['MedicineName']] = 0;
+            }
+            $medicineSales[$row['MedicineName']] += $row['Quantity_Sold'];
+        }
+    
+        $salesLabels = array_keys($monthlySales);
+        $salesValues = array_values($monthlySales);
+        $medicineLabels = array_keys($medicineSales);
+        $medicineValues = array_values($medicineSales);
+    
+        $bgColors = [
+            'rgba(255, 99, 132, 0.2)', 'rgba(54, 162, 235, 0.2)', 'rgba(255, 206, 86, 0.2)', 
+            'rgba(75, 192, 192, 0.2)', 'rgba(153, 102, 255, 0.2)', 'rgba(255, 159, 64, 0.2)', 
+            'rgba(255, 99, 132, 0.2)', 'rgba(205, 216, 816, 0.2)', 'rgba(255, 256, 86, 0.2)', 
+            'rgba(255, 206, 816, 0.2)', 'rgba(25, 206, 86, 0.2)', 'rgba(255, 26, 86, 0.2)'
+        ];
+    
+        return [
+            'sales' => [
+                'labels' => $salesLabels,
+                'values' => $salesValues,
+                'bgColors' => $bgColors,
+            ],
+            'medicines' => [
+                'labels' => $medicineLabels,
+                'values' => $medicineValues,
+                'bgColors' => array_slice($bgColors, 0, count($medicineLabels)),
+            ],
+        ];
+    }
+    
 
     public function delete($table, $conditionColumn, $conditionValue)
     {

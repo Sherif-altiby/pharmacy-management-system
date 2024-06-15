@@ -63,8 +63,19 @@ try {
             break;
         
 
-            case 'GET':
-                if (isset($_GET['search'])) {
+        case 'GET':
+                if (isset($_GET['statistics'])) {
+                                // Fetch statistics
+                        $statistics = $db->getSalesStatistics();
+
+                        if ($statistics !== false) {
+                            sendResponse('success', 'Statistics retrieved successfully', $statistics);
+                        } else {
+                            sendResponse('error', 'Failed to retrieve statistics');
+                        }
+                } 
+                if (isset($_GET['search'])) 
+                {
                     // Sanitize search input
                     $search = htmlspecialchars(strip_tags($_GET['search']));
                     
@@ -77,7 +88,9 @@ try {
                     } else {
                         sendResponse('error', 'Failed to retrieve medicines');
                     }
-                } else {
+                } 
+                else 
+                {
                     // If no search parameter is provided, return all medicines
                     $medicines = $db->getColumnValues('medicine', '*', 'ID');
                     if ($medicines !== false) {
