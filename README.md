@@ -1,6 +1,4 @@
-Sure! Here's the enhanced README with a detailed description of the project, including its aim and features, along with the requested emojis:
 
----
 
 # 💊 Pharma Management System
 
@@ -111,7 +109,7 @@ Check out the [Next.js deployment documentation](https://nextjs.org/docs/deploym
 ## 🙏 Acknowledgments
 
 Special thanks to:
-- Ali Abdallah
-- Sherif-altiby
+- Ali Abdallah(https://github.com/ali20021973)
+- Sherif-altiby(https://github.com/Sherif-altiby)
 
 ---
