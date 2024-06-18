@@ -21,7 +21,7 @@ const Navbar = ( {openMenu}: {openMenu: () => void } ) => {
     <nav className="h-16 flex items-center border-b dark:border-gray-600 px-4 bg-white dark:bg-black">
        <div className="container mx-auto flex justify-between items-center">
             <div className="w-8 h-8 rounded-full border flex justify-center items-center cursor-pointer dark:bg-white" onClick={openMenu} > <FaBars /> </div>
-            <div className="flex items-center space-x-7" >
+            <div className="flex items-center space-x-7"  data-aos="fade-left" >
                     <div className="hidden sm:flex items-center space-x-3" >
                         <div className="border rounded-full flex items-center px-3 py-1 bg-white" > 
                             <div className="font-bold text-xl  pr-3" > <CiSearch /> </div>

@@ -52,7 +52,7 @@ const AddMedicine: React.FC = () => {
   return (
     <div>
       <SectionHeader title="أضافة أدوية " />
-      <div>
+      <div data-aos="zoom-in" >
         <form 
           className="flex flex-col w-full md:w-[600px] mx-auto mt-5 bg-card-bg p-3 rounded-md" 
           onSubmit={handleSubmit}
@@ -111,7 +111,6 @@ const AddMedicine: React.FC = () => {
               className="border-none outline-none text-sm md:text-xl p-2 text-right flex-grow rounded-md"
               type="date"
               id="Expire"
-              placeholder="عدد العلب"
               value={formData.Expire}
               onChange={handleChange}
             />

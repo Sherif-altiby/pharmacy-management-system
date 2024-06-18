@@ -24,7 +24,7 @@ const SearchMedicine: React.FC = () => {
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     try {
-      const response = await fetch(`http://localhost/projects/pharmacymanagementsystem/pharmacy-management-system/Back_end/main.php?search=${encodeURIComponent(searchTerm)}`);
+      const response = await fetch(`http://localhost/pharmasy/Back_end/main.php?search=${encodeURIComponent(searchTerm)}`);
       
       if (!response.ok) {
         throw new Error(`HTTP error! Status: ${response.status}`);
@@ -51,7 +51,7 @@ const SearchMedicine: React.FC = () => {
   return (
     <div>
       <SectionHeader title="البحث عن ادوية" />
-      <div>
+      <div data-aos="zoom-in" >
         <form 
           className="flex flex-col w-full md:w-[600px] mx-auto mt-16 bg-card-bg p-3 rounded-md" 
           onSubmit={handleSubmit}
@@ -73,12 +73,12 @@ const SearchMedicine: React.FC = () => {
           {medicines.length > 0 ? (
             <ul>
               {medicines.map((medicine) => (
-                <li key={medicine.id} className="p-2 border-b">
-                  <p><strong>اسم الدواء:</strong> {medicine.Name}</p>
-                  <p><strong>سعر العلبة:</strong> {medicine.Box_Amount}</p>
-                  <p><strong>عدد العلب:</strong> {medicine.Tape_Amount}</p>
-                  <p><strong>تاريخ الصلاحية:</strong> {medicine.Expire}</p>
-                  <p><strong>الكود:</strong> {medicine.barcode}</p>
+                <li key={medicine.id} className="p-2 rounded-lg flex flex-row-reverse flex-wrap justify-between items-center bg-card-bg my-4 text-white">
+                  <p className='w-[250px] text-right my-1' ><strong>اسم الدواء:</strong> {medicine.Name}</p>
+                  <p className='w-[100px] text-right my-1' ><strong>سعر العلبة:</strong> {medicine.Box_Amount}</p>
+                  <p className='w-[100px] text-right my-1' ><strong>عدد العلب:</strong> {medicine.Tape_Amount}</p>
+                  <p className='w-[200px] text-right my-1' ><strong>تاريخ الصلاحية:</strong> {medicine.Expire}</p>
+                  <p className='w-[70px]  text-right my-1' ><strong>الكود:</strong> {medicine.barcode}</p>
                 </li>
               ))}
             </ul>
