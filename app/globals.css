@@ -8,12 +8,7 @@
 }
 
 .counter {
-    width: 10px;
-    height: 80px;
     background-image: linear-gradient(to top, #000, #999);
-    position: absolute;
-    top: 48%;
-    left: 47%;
-    transform: rotate(40deg);
+    /* transform: rotate(40deg); */
     transform-origin: top;
 }

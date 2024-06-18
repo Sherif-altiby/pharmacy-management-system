@@ -7,30 +7,30 @@ const EditeMedicene = () => {
       <div>
         <SectionHeader title="تعديل ادوية" />
         <div data-aos="zoom-in" >
-          <form action="" className="flex flex-col w-full md:w-[600px] mx-auto mt-16 bg-card-bg dark:bg-black dark:text-white p-3 rounded-md" >
+          <form action="" className="flex flex-col w-full md:w-[600px] mx-auto mt-5 bg-white dark:bg-transparent dark:shadow-sm dark:shadow-white dark:text-white p-3 rounded-md" >
                 <div className="flex items-center my-2 w-full flex-row-reverse justify-between " >
                     <label className="w-[90px] md:w-[120px] text-right text-sm md:text-xl" htmlFor="name"> اسم الدواء </label>
-                    <input className="border-none outline-none text-sm md:text-xl p-2 text-right flex-grow rounded-md" type="text" id="name" placeholder="اسم الدواء" />
+                    <input className="border-[#999] border outline-none text-sm md:text-xl p-2 text-right flex-grow" type="text" id="name" placeholder="اسم الدواء" />
                 </div>
   
                <div className="flex items-center my-2 w-full flex-row-reverse justify-between " >
                    <label className="w-[90px] md:w-[120px] text-right text-sm md:text-xl" htmlFor="price"> سعر العلبة </label>
-                   <input className="border-none outline-none text-sm md:text-xl p-2 text-right flex-grow rounded-md" type="number" id="price" placeholder="سعر العلبة" />
+                   <input className="border-[#999] border outline-none text-sm md:text-xl p-2 text-right flex-grow" type="number" id="price" placeholder="سعر العلبة" />
                </div>
   
                  <div className="flex items-center my-2 w-full flex-row-reverse justify-between " >
                     <label className="w-[90px] md:w-[120px] text-right text-sm md:text-xl" htmlFor="price"> عدد العلب </label>
-                    <input className="border-none outline-none text-sm md:text-xl p-2 text-right flex-grow rounded-md" type="number" id="price" placeholder="عدد العلب" />
+                    <input className="border-[#999] border outline-none text-sm md:text-xl p-2 text-right flex-grow" type="number" id="price" placeholder="عدد العلب" />
                  </div>
   
                 <div className="flex items-center my-2 w-full flex-row-reverse justify-between " >
                     <label className="w-[90px] md:w-[120px] text-right text-sm md:text-xl" htmlFor="date"> تاريخ الصلاحية </label>
-                    <input className="border-none outline-none text-sm md:text-xl p-2 text-right flex-grow rounded-md" type="date" id="date" placeholder="عدد العلب" />
+                    <input className="border-[#999] border outline-none text-sm md:text-xl p-2 text-right flex-grow" type="date" id="date" placeholder="عدد العلب" />
                 </div>
 
                 <div className="flex items-center my-2 w-full flex-row-reverse justify-between " >
                    <label className="w-[90px] md:w-[120px] text-right flex items-center justify-end text-xl md:text-6xl" htmlFor="barcode"><FaBarcode /></label>
-                   <input className="border-none outline-none text-sm md:text-xl p-2 text-right flex-grow rounded-md" type="number" id="code" placeholder="الكود" />
+                   <input className="border-[#999] border outline-none text-sm md:text-xl p-2 text-right flex-grow" type="number" id="code" placeholder="الكود" />
                 </div>
 
                 <div className="flex items-center justify-between gap-3" >

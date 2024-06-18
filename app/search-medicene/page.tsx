@@ -62,7 +62,7 @@ const SearchMedicine: React.FC = () => {
       <SectionHeader title="البحث عن ادوية" />
       <div data-aos="zoom-in">
         <form
-          className="flex flex-col w-full md:w-[600px] mx-auto mt-16 bg-card-bg dark:bg-black p-3 rounded-md"
+          className="flex flex-col w-full md:w-[600px] mx-auto mt-5 bg-white dark:bg-transparent dark:shadow-sm dark:shadow-white dark:text-white p-3 rounded-md"
           onSubmit={handleSubmit}
         >
           <div className="flex items-center my-2 w-full flex-row-reverse justify-between">
@@ -73,7 +73,7 @@ const SearchMedicine: React.FC = () => {
               اسم الدواء
             </label>
             <input
-              className="border-none outline-none text-sm md:text-xl p-2 text-right flex-grow rounded-md"
+              className="border-[#999] border outline-none text-sm md:text-xl p-2 text-right flex-grow"
               type="text"
               id="name"
               placeholder="اسم الدواء"
