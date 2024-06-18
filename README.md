@@ -1,4 +1,6 @@
-
+<p align="right">
+  <img src="https://visitor-badge.laobi.icu/badge?page_id=AliHadhood.AliHadhood" />
+</p>
 
 # 💊 Pharma Management System
 
