@@ -13,14 +13,14 @@ import { TbWritingSign } from "react-icons/tb";
 
 
 const items = [
-     {title: "أضف دواء", link:'add-medicene', icon: MdAddCircle, duration: 500 },
-     {title: "البحث عن دواء", link:'search-medicene', icon: FaSearch, duration: 600 },
-     {title: "حذف دواء", link:'delete-medicene', icon: MdDelete , duration: 700} , 
-     {title: "تعديل دواء", link:'edit-medicene', icon: AiFillEdit, duration: 800} , 
-     {title: "بيع دواء", link:'sell-medicene', icon: FaCartArrowDown, duration: 900 },
-     {title: "كشف المبيعات", link:'statics', icon: FaSquarePollVertical, duration: 1000} , 
-     {title: "بيع الشكوك", link:'sell-shokok', icon: TbWritingSign, duration: 1100 },
-     {title: "كشف مبيعات الشكوك", link:'statics-shokok', icon: FaSquarePollVertical, duration: 1200 },
+     {title: "أضف دواء", link:'add-medicene', icon: MdAddCircle, duration: 100 },
+     {title: "البحث عن دواء", link:'search-medicene', icon: FaSearch, duration: 200 },
+     {title: "حذف دواء", link:'delete-medicene', icon: MdDelete , duration: 300} , 
+     {title: "تعديل دواء", link:'edit-medicene', icon: AiFillEdit, duration: 400} , 
+     {title: "بيع دواء", link:'sell-medicene', icon: FaCartArrowDown, duration: 500 },
+     {title: "كشف المبيعات", link:'statics', icon: FaSquarePollVertical, duration: 600} , 
+     {title: "بيع الشكوك", link:'sell-shokok', icon: TbWritingSign, duration: 700 },
+     {title: "كشف مبيعات الشكوك", link:'statics-shokok', icon: FaSquarePollVertical, duration: 800 },
     ]
 
 const Menu = ( {closeMenu, menuBlock}: {closeMenu: () => void, menuBlock: boolean} ) => {
@@ -35,13 +35,13 @@ const Menu = ( {closeMenu, menuBlock}: {closeMenu: () => void, menuBlock: boolea
                  <p className="text-xl" > Pharmacy </p> 
             </div>
             {items.map((item) => (
-                <Link href={item.link} key={item.title} onClick={closeMenu} className="pl-3 pr-6 block py-2 cursor-pointer" >
-                      <div className="text-btn-color flex gap-2 rounded-md duration-200 justify-end hover:bg-page-color p-2 dark:text-white dark:hover:text-black" data-aos="fade-right" data-aos-duration={`${item.duration}`} >
+                <Link href={item.link} key={item.title} onClick={closeMenu} className="pl-3 pr-6 block py-2" >
+                      <div className="text-btn-color flex gap-2 rounded-md duration-200 justify-end hover:bg-page-color p-2 dark:text-white dark:hover:text-black cursor-pointer" data-aos="fade-right" data-aos-duration={`${item.duration}`} >
                          <p className="font-medium text-lg" > {item.title} </p>
                          <div className="text-2xl" > {item.icon?  <item.icon /> : null} </div>
                       </div>
                 </Link>
-            ))}
+            )) } 
         </div>
     </div>
    </>

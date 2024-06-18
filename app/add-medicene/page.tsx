@@ -63,7 +63,7 @@ const AddMedicine: React.FC = () => {
       <SectionHeader title="أضافة أدوية " />
       <div data-aos="zoom-in" >
         <form 
-          className="flex flex-col w-full md:w-[600px] mx-auto mt-5 bg-card-bg p-3 rounded-md" 
+          className="flex flex-col w-full md:w-[600px] mx-auto mt-5 bg-card-bg dark:bg-black dark:text-white p-3 rounded-md" 
           onSubmit={handleSubmit}
         >
           <div className="flex items-center my-2 w-full flex-row-reverse justify-between">

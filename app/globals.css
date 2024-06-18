@@ -1,9 +1,19 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
- 
 
+.mn-height,
+.loading-statics {
+  height: calc(100vh - 64px);
+}
 
-.mn-height{
-    height: calc(100vh - 64px);
+.counter {
+    width: 10px;
+    height: 80px;
+    background-image: linear-gradient(to top, #000, #999);
+    position: absolute;
+    top: 48%;
+    left: 47%;
+    transform: rotate(40deg);
+    transform-origin: top;
 }
