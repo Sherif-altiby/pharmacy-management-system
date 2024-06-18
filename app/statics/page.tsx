@@ -30,7 +30,11 @@ const Page = () => {
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    fetch('http://localhost/pharmasy/Back_end/main.php?statistics=true')
+     //Ali paht:
+      // projects/pharmacymanagementsystem/pharmacy-management-system/Back_end/
+      // fetch('http://localhost/projects/pharmacymanagementsystem/pharmacy-management-system/Back_end//main.php?statistics=true')
+
+    fetch('http://localhost/projects/pharmacymanagementsystem/pharmacy-management-system/Back_end//main.php?statistics=true')
       .then(response => {
         if (!response.ok) {
           throw new Error('Network response was not ok');

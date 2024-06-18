@@ -25,6 +25,15 @@ const AddMedicine: React.FC = () => {
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     try {
+        //Ali paht:
+      // projects/pharmacymanagementsystem/pharmacy-management-system/Back_end/
+      // const response = await fetch('http://localhost/projects/pharmacymanagementsystem/pharmacy-management-system/Back_end/main.php', {
+      //   method: 'POST',
+      //   headers: {
+      //     'Content-Type': 'application/json'
+      //   },
+      //   body: JSON.stringify(formData)
+      // });
       const response = await fetch('http://localhost/projects/pharmacymanagementsystem/pharmacy-management-system/Back_end/main.php', {
         method: 'POST',
         headers: {

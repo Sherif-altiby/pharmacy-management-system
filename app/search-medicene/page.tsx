@@ -24,7 +24,9 @@ const SearchMedicine: React.FC = () => {
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     try {
-      const response = await fetch(`http://localhost/pharmasy/Back_end/main.php?search=${encodeURIComponent(searchTerm)}`);
+      //Ali paht:
+      // projects/pharmacymanagementsystem/pharmacy-management-system/Back_end/
+      const response = await fetch(`http://localhost/projects/pharmacymanagementsystem/pharmacy-management-system/Back_end/main.php?search=${encodeURIComponent(searchTerm)}`);
       
       if (!response.ok) {
         throw new Error(`HTTP error! Status: ${response.status}`);
