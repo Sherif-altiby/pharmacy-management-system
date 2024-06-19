@@ -92,7 +92,7 @@ const SearchMedicine: React.FC = () => {
             <Loading />
           ) : medicines.length > 0 ? (
             <ul className="border-b-2 border-b-emerald-700" >
-              <li className="p-2 rounded-tl-lg rounded-tr-lg flex flex-row-reverse justify-between items-center bg-emerald-700  text-white"  >
+              <li className="p-2 rounded-tl-lg rounded-tr-lg flex flex-row-reverse justify-between items-center  bg-blue-700  text-white"  >
                   <p className="w-[250px] text-right"> <strong>اسم الدواء</strong>  </p>
                   <p className="w-[100px] text-right"> <strong>سعر العلبة</strong>  </p>
                   <p className="w-[100px] text-right"> <strong>عدد العلب</strong>  </p>
