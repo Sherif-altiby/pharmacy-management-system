@@ -9,6 +9,18 @@
 
 .counter {
     background-image: linear-gradient(to top, #000, #999);
-    /* transform: rotate(40deg); */
     transform-origin: top;
+}
+
+.sacl-anim{
+  animation: medicene linear ease-in infinite 1s;
+}
+
+@keyframes medicene {
+   from {
+    transform: scale(1);
+   }
+   to{
+    transform: scale(1.2);
+   }
 }
