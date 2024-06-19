@@ -63,13 +63,13 @@ const AddMedicine: React.FC = () => {
       <SectionHeader title="أضافة أدوية " />
       <div data-aos="zoom-in" >
         <form 
-          className="flex flex-col w-full md:w-[600px] mx-auto mt-5 bg-card-bg dark:bg-black dark:text-white p-3 rounded-md" 
+          className="flex flex-col w-full md:w-[600px] mx-auto mt-5 bg-white dark:bg-transparent dark:shadow-sm dark:shadow-white dark:text-white p-3 rounded-md" 
           onSubmit={handleSubmit}
         >
           <div className="flex items-center my-2 w-full flex-row-reverse justify-between">
             <label className="w-[90px] md:w-[120px] text-right text-sm md:text-xl" htmlFor="name">اسم الدواء</label>
             <input
-              className="border-none outline-none text-sm md:text-xl p-2 text-right flex-grow rounded-md"
+              className="border-[#999] border outline-none text-sm md:text-xl p-2 text-right flex-grow "
               type="text"
               id="name"
               placeholder="اسم الدواء"
@@ -81,7 +81,7 @@ const AddMedicine: React.FC = () => {
           <div className="flex items-center my-2 w-full flex-row-reverse justify-between">
             <label className="w-[90px] md:w-[120px] text-right text-sm md:text-xl" htmlFor="Box_Amount">سعر العلبة</label>
             <input
-              className="border-none outline-none text-sm md:text-xl p-2 text-right flex-grow rounded-md"
+              className="border-[#999] border outline-none text-sm md:text-xl p-2 text-right flex-grow "
               type="number"
               id="Box_Amount"
               placeholder="سعر العلبة"
@@ -93,7 +93,7 @@ const AddMedicine: React.FC = () => {
           <div className="flex items-center my-2 w-full flex-row-reverse justify-between">
             <label className="w-[90px] md:w-[120px] text-right text-sm md:text-xl" htmlFor="Tape_Amount">عدد العلب</label>
             <input
-              className="border-none outline-none text-sm md:text-xl p-2 text-right flex-grow rounded-md"
+              className="border-[#999] border outline-none text-sm md:text-xl p-2 text-right flex-grow "
               type="number"
               id="Tape_Amount"
               placeholder="عدد العلب"
@@ -105,7 +105,7 @@ const AddMedicine: React.FC = () => {
           <div className="flex items-center my-2 w-full flex-row-reverse justify-between">
             <label className="w-[90px] md:w-[120px] text-right text-sm md:text-xl" htmlFor="Tape_Price">تاريخ الصلاحية</label>
             <input
-              className="border-none outline-none text-sm md:text-xl p-2 text-right flex-grow rounded-md"
+              className="border-[#999] border outline-none text-sm md:text-xl p-2 text-right flex-grow "
               type="number"
               id="Tape_Price"
               placeholder="تاريخ الصلاحية"
@@ -117,7 +117,7 @@ const AddMedicine: React.FC = () => {
           <div className="flex items-center my-2 w-full flex-row-reverse justify-between">
             <label className="w-[90px] md:w-[120px] text-right text-sm md:text-xl" htmlFor="Expire">تاريخ الصلاحية</label>
             <input
-              className="border-none outline-none text-sm md:text-xl p-2 text-right flex-grow rounded-md"
+              className="border-[#999] border outline-none text-sm md:text-xl p-2 text-right flex-grow "
               type="date"
               id="Expire"
               value={formData.Expire}
@@ -128,7 +128,7 @@ const AddMedicine: React.FC = () => {
           <div className="flex items-center my-2 w-full flex-row-reverse justify-between">
             <label className="w-[90px] md:w-[120px] text-right flex items-center justify-end text-xl md:text-6xl" htmlFor="barcode"><FaBarcode /></label>
             <input
-              className="border-none outline-none text-sm md:text-xl p-2 text-right flex-grow rounded-md"
+              className="border-[#999] border outline-none text-sm md:text-xl p-2 text-right flex-grow "
               type="number"
               id="barcode"
               placeholder="الكود"
