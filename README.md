@@ -7,10 +7,9 @@
 Welcome to the Pharma Management System! This project aims to streamline pharmaceutical operations, offering a robust platform for managing medicines, performing CRUD operations, and generating insightful statistics to help managers stay updated and make informed decisions.
 
 #📸 Demo
-```markdown
-![Alt text](URL_or_path_to_image)
 
-![Pharma Management System](https://github.com/Sherif-altiby/pharmacy-management-system/blob/main/Githup_demo/Screenshot%20(90).png)
+```markdown
+![Pharma Management System](https://i.imgur.com/example.jpg)
 
 
 
