@@ -8,9 +8,9 @@ Welcome to the Pharma Management System! This project aims to streamline pharmac
 
 #📸 Demo
 
-```markdown
-![Pharma Management System](https://i.imgur.com/example.jpg)
-
+![Demo 1](https://github.com/Sherif-altiby/pharmacy-management-system/blob/main/Githup_demo/Screenshot%20(90).png)
+![Demo 2](https://github.com/Sherif-altiby/pharmacy-management-system/blob/main/Githup_demo/Screenshot%20(91).png)
+![Demo 3](https://github.com/Sherif-altiby/pharmacy-management-system/blob/main/Githup_demo/Screenshot%20(92).png)
 
 
 ## 🚀 Getting Started
