@@ -21,9 +21,9 @@ const Page = () => {
   useEffect(() => {
      //Ali paht:
       // projects/pharmacymanagementsystem/pharmacy-management-system/Back_end/
-      // fetch('http://localhost/projects/pharmacymanagementsystem/pharmacy-management-system/Back_end//main.php?statistics=true')
+       fetch('http://localhost/projects/pharmacymanagementsystem/pharmacy-management-system/Back_end//main.php?statistics=true')
 
-    fetch('http://localhost/pharmasy/back_end/main.php?statistics=true')
+    // fetch('http://localhost/pharmasy/back_end/main.php?statistics=true')
       .then(response => {
         if (!response.ok) {
           throw new Error('Network response was not ok');

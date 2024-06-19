@@ -30,11 +30,13 @@ const SearchMedicine: React.FC = () => {
     try {
       //Ali paht:
       // projects/pharmacymanagementsystem/pharmacy-management-system/Back_end/
+      // const response = await fetch(`http://localhost/projects/pharmacymanagementsystem/pharmacy-management-system/Back_end//main.php?search=${encodeURIComponent(searchTerm)}`);
+
+
+      
       // Sherif Path: http://localhost/pharmasy/back_end/main.php
 
-      const response = await fetch(`http://localhost/pharmasy/back_end/main.php?search=${encodeURIComponent(searchTerm)}`);
-
-
+      const response = await fetch(`http://localhost/projects/pharmacymanagementsystem/pharmacy-management-system/Back_end//main.php?search=${encodeURIComponent(searchTerm)}`);
       if (!response.ok) {
         throw new Error(`HTTP error! Status: ${response.status}`);
       }
