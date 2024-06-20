@@ -50,7 +50,7 @@ const AddMedicine: React.FC = () => {
       if (result.status === 'success') {
         alert('Medicine added successfully');
       } else {
-        alert('Failed to add medicine: ' + result.message);
+        alert('  في مشكله : ' + result.message);
       }
     } catch (error) {
       console.error('Error:', error);

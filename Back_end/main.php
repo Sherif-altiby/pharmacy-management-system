@@ -41,7 +41,7 @@ try {
                 $existingMedicineByBarcode = $db->getSpecialColumn('medicine', 'ID', 'barcode', $barcode);
         
                 if ($existingMedicineByName || $existingMedicineByBarcode) {
-                    sendResponse('error', 'Medicine already exists');
+                    sendResponse('error', 'هذا الدواء موجود بالفعل في الصيدليه!');
                 } else {
                     // Insert new medicine
                     if ($db->insert('medicine', [
