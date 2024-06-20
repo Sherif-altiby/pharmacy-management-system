@@ -34,7 +34,7 @@ const AddMedicine: React.FC = () => {
       //   },
       //   body: JSON.stringify(formData)
       // });
-      const response = await fetch('http://localhost/projects/pharmacymanagementsystem/pharmacy-management-system/Back_end/main.php', {
+      const response = await fetch('http://192.168.1.10/projects/pharmacymanagementsystem/pharmacy-management-system/Back_end/main.php', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
