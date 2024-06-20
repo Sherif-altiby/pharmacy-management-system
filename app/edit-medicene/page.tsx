@@ -29,7 +29,8 @@ const EditeMedicene = () => {
   const fetchData = async () => {
     setLoading(true)
     try {
-      const response = await fetch(`http://localhost/pharmasy/Back_end/main.php?search=${encodeURIComponent(searchTerm)}`);
+      const response = await fetch(`http://localhost/projects/pharmacymanagementsystem/pharmacy-management-system/Back_end/main.php?search=${encodeURIComponent(searchTerm)}`);
+      // const response = await fetch(`http://localhost/main.php?search=${encodeURIComponent(searchTerm)}`);
       if (!response.ok) {
         throw new Error(`HTTP error! Status: ${response.status}`);
       }
