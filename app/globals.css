@@ -12,15 +12,8 @@
     transform-origin: top;
 }
 
-.sacl-anim{
-  animation: medicene linear ease-in infinite 1s;
-}
-
-@keyframes medicene {
-   from {
-    transform: scale(1);
-   }
-   to{
-    transform: scale(1.2);
-   }
+.remove-arrow input[type='number']::-webkit-outer-spin-button,
+input[type='number']::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
 }

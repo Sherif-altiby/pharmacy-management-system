@@ -5,8 +5,10 @@ import SectionHeader from "../components/SectionHeader";
 import Loading from "../components/Loading";
 
 import { FaDollarSign } from "react-icons/fa";
+import { MdDelete } from "react-icons/md";
 
 import { Medicine } from "../types";
+import { fetchMedicinesData } from "../utils";
 
 const EditeMedicene = () => {
   const [searchTerm, setSearchTerm] = useState("");
@@ -20,38 +22,15 @@ const EditeMedicene = () => {
   };
 
   const fetchData = async () => {
-    try {
-      const response = await fetch(`http://localhost/projects/pharmacymanagementsystem/pharmacy-management-system/Back_end/main.php?search=${encodeURIComponent(searchTerm)}`,
-      {
-        method: 'GET',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-      });
-      // const response = await fetch(`http://localhost/pharmasy/Back_end/main.php?search=${encodeURIComponent(searchTerm)}`);
-      if (!response.ok) {
-        throw new Error(`HTTP error! Status: ${response.status}`);
-      }
+    setLoading(true)
+   if (searchTerm.length > 0 && searchTerm !== "") {  
+         const data = await fetchMedicinesData({ searchTerm});
+         setMedicines(data.data);
+         setLoading(false)
+   } 
+ };
 
-      const result = await response.json();
-      if (result.status === "success") {
-        setMedicines(result.data);
-      } else {
-        throw new Error("Failed to retrieve medicines: " + result.message);
-      }
-    } catch (error) {
-      console.error("Error:", error);
-      alert("Failed to fetch data. Please try again later.");
-    } finally {
-      setLoading(false);
-    }
-  };
-
-  useEffect(() => {
-    if (searchTerm.length > 0 || searchTerm === undefined ) {
-      fetchData();
-    }
-  }, [searchTerm]);
+  useEffect(() => { if (searchTerm.length > 0 || searchTerm === undefined ) { fetchData(); }}, [searchTerm]);
 
  
   return (
@@ -96,7 +75,7 @@ const EditeMedicene = () => {
                     <p className="w-[100px] text-right"> {medicine.Expire} </p>
                     <p className="w-[100px] text-right flex items-center justify-end gap-1"> {medicine.Tape_Amount} </p>
                     <p className="w-[100px] text-right"> {medicine.barcode} </p>
-                    <p className="w-[100px] text-right "> <div className="bg-btn-color text-white text-xl cursor-pointer py-1 px-3 hover:scale-95 duration-200 w-fit rounded-sm " > X</div> </p>
+                    <p className="w-[100px] text-right "> <div className="bg-btn-color text-white text-xl cursor-pointer py-1 px-3 hover:scale-95 duration-200 w-fit rounded-sm " > <MdDelete /> </div> </p>
                   </li>
                 );
               })}

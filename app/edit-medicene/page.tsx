@@ -5,6 +5,7 @@ import SectionHeader from "../components/SectionHeader";
 import { FaBarcode } from "react-icons/fa";
 import { Medicine } from "../types";
 import Loading from "../components/Loading";
+import { fetchMedicinesData } from "../utils";
 
 
 const EditeMedicene = () => {
@@ -14,11 +15,6 @@ const EditeMedicene = () => {
   const [loading, setLoading] = useState(false);
   const [medicines, setMedicines] = useState<Medicine[]>([]);
 
-  const [mediceneMenu, setMediceneMenu] = useState(false);
-  const [mediceneExpire, setMedicenExpire] = useState('');
-  const [mediceneTrapePrice, setMediceneTrapePrice] = useState(1);
-  const [mediceneTrapeCount, setMediceneTrapeCount] = useState(1);
-  const [medicenBarcode, setMediceneBarCode] = useState('');
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -27,69 +23,21 @@ const EditeMedicene = () => {
   };
 
   const fetchData = async () => {
-    setLoading(true)
-    try {
-      const response = await fetch(`http://localhost/projects/pharmacymanagementsystem/pharmacy-management-system/Back_end/main.php?search=${encodeURIComponent(searchTerm)}`);
-      // const response = await fetch(`http://localhost/main.php?search=${encodeURIComponent(searchTerm)}`);
-      if (!response.ok) {
-        throw new Error(`HTTP error! Status: ${response.status}`);
-      }
-
-      const result = await response.json();
-      if (result.status === "success") {
-        setMedicines(result.data);
-      } else {
-        throw new Error("Failed to retrieve medicines: " + result.message);
-      }
-    } catch (error) {
-      console.error("Error:", error);
-      alert("Failed to fetch data. Please try again later.");
-    } finally {
-      setLoading(false);
-    }
+    if (searchTerm.length > 0 && searchTerm !== "") { 
+          setLoading(true) 
+          const data = await fetchMedicinesData({ searchTerm});
+          setMedicines(data.data);
+          setLoading(false)
+    } 
   };
 
-  useEffect(() => { 
-    if (searchTerm.length > 0 ){ 
-        fetchData();
-        setMediceneMenu(true)
-      } else {
-         setMediceneMenu(false)
-       }
-      }, [searchTerm]);
-
-  const handleClick = ( {Name, Expire, Tape_Amount, Tape_Price, barcode}: Medicine ) => {
-    setSearchTerm(Name)
-    setMedicenExpire(Expire)
-    setMediceneTrapePrice(Tape_Price)
-    setMediceneTrapeCount(Tape_Amount)
-    setMediceneBarCode(barcode)
-  }
-
-  const MedicenesMenu = () => {
-    return (
-      <div>
-        {
-        loading ? <div className="mt-[150px]" >  <Loading /> </div> :
-        
-        medicines.map(({ id, Name, Expire, Tape_Amount, Tape_Price, barcode, Box_Amount }: Medicine, index) => (
-          <p
-            key={id}
-            className={`text-center text-xl p-2 cursor-pointer ${index % 2 === 0 ? 'bg-gray-500' : 'bg-white'}`}
-            onClick={() => handleClick({ Name, Expire, Tape_Amount, Tape_Price, barcode, id, Box_Amount })}
-          >
-            {Name}
-          </p>
-        ))}
-      </div>
-    );
-  };
+  useEffect(() => { fetchData() }, [searchTerm]);
+  
 
     return (
       <div>
         <SectionHeader title="تعديل ادوية" />
         <div data-aos="zoom-in" className="relative"  >
-          <div className={`absolute w-[250px] h-[400px] overflow-y-auto rounded-sm shadow-md ${mediceneMenu ? 'block' : 'hidden'} `} > <MedicenesMenu /> </div>
           <form action="" className="flex flex-col w-full md:w-[600px] mx-auto mt-5 bg-white dark:bg-transparent dark:shadow-sm dark:shadow-white dark:text-white p-3 rounded-md" onSubmit={handleSubmit} >
                 <div className="flex items-center my-2 w-full flex-row-reverse justify-between " >
                     <label className="w-[90px] md:w-[120px] text-right text-sm md:text-xl" htmlFor="name"> اسم الدواء </label>
@@ -102,59 +50,54 @@ const EditeMedicene = () => {
                         onChange={(e) => setSearchTerm(e.target.value)}
                         />
                 </div>
-  
-               <div className="flex items-center my-2 w-full flex-row-reverse justify-between " >
-                   <label className="w-[90px] md:w-[120px] text-right text-sm md:text-xl" htmlFor="price"> سعر الشريط </label>
-                   <input 
-                      className="border-[#999] border outline-none text-sm md:text-xl p-2 text-right flex-grow" 
-                      type="number" 
-                      id="price" 
-                      placeholder="سعر الشريط" 
-                      value={mediceneTrapePrice}
-                      />
-               </div>
-  
-                 <div className="flex items-center my-2 w-full flex-row-reverse justify-between " >
-                    <label className="w-[90px] md:w-[120px] text-right text-sm md:text-xl" htmlFor="price"> عدد الاشرطة </label>
-                    <input 
-                       className="border-[#999] border outline-none text-sm md:text-xl p-2 text-right flex-grow" 
-                       type="number" 
-                       id="price" 
-                       placeholder="عدد الاشرطة" 
-                       value={mediceneTrapeCount}
-                       />
-                 </div>
-  
-                <div className="flex items-center my-2 w-full flex-row-reverse justify-between " >
-                    <label className="w-[90px] md:w-[120px] text-right text-sm md:text-xl" htmlFor="date"> تاريخ الصلاحية </label>
-                    <input 
-                       className="border-[#999] border outline-none text-sm md:text-xl p-2 text-right flex-grow" 
-                       type="date" 
-                       id="date" 
-                       placeholder="عدد العلب" 
-                       value={mediceneExpire}
-                       />
-                </div>
-
-                <div className="flex items-center my-2 w-full flex-row-reverse justify-between " >
-                   <label className="w-[90px] md:w-[120px] text-right flex items-center justify-end text-xl md:text-6xl" htmlFor="barcode"><FaBarcode /></label>
-                   <input 
-                      className="border-[#999] border outline-none text-sm md:text-xl p-2 text-right flex-grow" 
-                      type="number" 
-                      id="code" 
-                      placeholder="الكود" 
-                      value={medicenBarcode}
-                      />
-                </div>
-
-                <div className="flex items-center justify-between gap-3" >
-                   <button className="bg-btn-color text-white text-xl cursor-pointer px-3 py-1 rounded-md font-medium text-md mt-5 w-full" > تعديل </button>
-                   <button className="bg-btn-color text-white text-xl cursor-pointer px-3 py-1 rounded-md font-medium text-md mt-5 w-full" > حذف </button>
-                </div>
           </form>
+          <div className="mt-5">
+          {loading ? ( <Loading />) : medicines.length > 0 ? (
+            <div className="flex gap-3 justify-between items-center flex-wrap">
+              {medicines.map((medicine) => {
+                return (
+                  <div key={medicine.id} className={`p-2 flex flex-col shadow-md bg-white dark:bg-black dark:text-white`}>
+                       <div className="flex items-center gap-2 p-2 flex-row-reverse">
+                             <label className="w-[90px]  text-right flex items-center justify-end text-md"  htmlFor="name"> اسم الدواء </label>
+                             <input className="border-[#999] dark:bg-inherit dark:shadow-md dark:shadow-gray-800 border-1 shadow-md outline-none text-right pr-2 w-[200px]" type="text" placeholder={medicine.Name} />
+                       </div>
+                       <div className="flex items-center gap-2 p-2 flex-row-reverse">
+                             <label className="w-[90px]  text-right flex items-center justify-end text-md"  htmlFor="name">  سعر الشريط </label>
+                             <input className="border-[#999] dark:bg-inherit dark:shadow-md dark:shadow-gray-800 border-1 shadow-md outline-none text-right pr-2 w-[200px]" type="number" placeholder={`${medicine.Tape_Price}`} />
+                       </div>
+                       <div className="flex items-center gap-2 p-2 flex-row-reverse" >
+                             <label className="w-[90px]  text-right flex items-center justify-end text-md"  htmlFor="name"> عدد الاشرطة </label>
+                             <input className="border-[#999] dark:bg-inherit dark:shadow-md dark:shadow-gray-800 border-1 shadow-md outline-none text-right pr-2 w-[200px]" type="number" placeholder={`${medicine.Tape_Amount}`} />
+                       </div>
+                       <div className="flex items-center gap-2 p-2 flex-row-reverse">
+                            <label className="w-[90px]  text-right flex items-center justify-end text-md" htmlFor="barcode"><FaBarcode /></label>
+                            <input className="border-[#999] dark:bg-inherit dark:shadow-md dark:shadow-gray-800 border-1 shadow-md outline-none text-right pr-2 w-[200px]" type="number" placeholder={`${medicine.barcode}`} />
+                       </div>
+                  </div>
+                );
+              })}
+            </div>
+          ) : ( null )}
+        </div>
         </div>
       </div>
     )
   }
   
   export default EditeMedicene
+
+
+// {/* <div className="p-2 rounded-tl-lg rounded-tr-lg flex flex-row-reverse justify-between items-center bg-blue-700 dark:bg-black text-white">
+//   <p className="w-[250px] text-right"><strong>اسم الدواء</strong></p>
+//   <p className="w-[100px] text-right"><strong>سعر الشريط</strong></p>
+//   <p className="w-[100px] text-right"><strong> تاريخ الصلاحية </strong></p>
+//   <p className="w-[100px] text-right"><strong>الاشرطة المتبقية</strong></p>
+//   <p className="w-[100px] text-right"><strong>الكود</strong></p>
+// </div> */}
+
+
+  // <p className="w-[250px] text-right"> <div>  </div> {medicine.Name}</p>
+  // <p className="w-[100px] text-right flex items-center justify-end gap-1"> <div className="text-sm text-btn-color">  </div> <div className="text-xl">{medicine.Tape_Price}</div></p>
+  // <p className="w-[100px] text-right"> {medicine.Expire} </p>
+  // <p className="w-[100px] text-right flex items-center justify-end gap-1"> {medicine.Tape_Amount} </p>
+  // <p className="w-[100px] text-right"> {medicine.barcode} </p>
