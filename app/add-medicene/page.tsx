@@ -6,7 +6,7 @@ import { FaBarcode } from "react-icons/fa";
 import { addMedicenes } from '../utils';
 import { Medicine } from '../types';
 
-const AddMedicine: React.FC = () => {
+const AddMedicine = () => {
  
   const [mediceneName, setMediceneName] = useState('');
   const [mediceneExpire, setMediceneExpire] = useState(new Date());
@@ -26,7 +26,6 @@ const AddMedicine: React.FC = () => {
       Tape_Price: mediceneTapePrice,
       Box_Amount: 1,
      }
-
      await addMedicenes( newMedicine );
  }
 
@@ -166,4 +165,4 @@ export default AddMedicine;
   //     ...formData,
   //     id: value
   //   });
-  // };
+  // }

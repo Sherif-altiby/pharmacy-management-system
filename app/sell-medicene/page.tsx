@@ -26,11 +26,24 @@ const EditeMedicene = () => {
   };
 
   const fetchData = async () => {
-    setLoading(true);
-    if (searchTerm.length > 0 && searchTerm !== "") {
-      const data = await fetchMedicinesData({ searchTerm });
-      setMedicines(data.data);
-      setInputValues(data.data.map(() => 0));  
+    try {
+      const response = await fetch(`http://localhost/projects/pharmacymanagementsystem/pharmacy-management-system/Back_end/main.php?search=${encodeURIComponent(searchTerm)}`);
+      // const response = await fetch(`http://localhost/pharmasy/Back_end/main.php?search=${encodeURIComponent(searchTerm)}`);
+      if (!response.ok) {
+        throw new Error(`HTTP error! Status: ${response.status}`);
+      }
+
+      const result = await response.json();
+      if (result.status === "success") {
+        setMedicines(result.data);
+        setInputValues(result.data.map(() => 1)); // Initialize input values
+      } else {
+        throw new Error("Failed to retrieve medicines: " + result.message);
+      }
+    } catch (error) {
+      console.error("Error:", error);
+      alert("Failed to fetch data. Please try again later.");
+    } finally {
       setLoading(false);
     }
   };
