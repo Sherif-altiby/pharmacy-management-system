@@ -73,6 +73,7 @@ const EditeMedicene = () => {
                             <label className="w-[90px]  text-right flex items-center justify-end text-md" htmlFor="barcode"><FaBarcode /></label>
                             <input className="border-[#999] dark:bg-inherit dark:shadow-md dark:shadow-gray-800 border-1 shadow-md outline-none text-right pr-2 w-[200px]" type="number" placeholder={`${medicine.barcode}`} />
                        </div>
+                       <div className="w-[150px]  text-center rounded-sm cursor-pointer py-1 px-3 text-lg ml-auto mt-4 text-white bg-btn-color" > تعديل </div>
                   </div>
                 );
               })}
