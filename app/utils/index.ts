@@ -2,7 +2,12 @@ import { Medicine } from "../types";
 
 export const fetchMedicinesData = async ({ searchTerm }: { searchTerm: string }) => {
     try {
-        const response = await fetch(`http://localhost/pharmasy/back_end/main.php?search=${encodeURIComponent(searchTerm)}`);
+
+        //Ali path
+        const response = await fetch(`http://localhost/projects/pharmacymanagementsystem/pharmacy-management-system/back_end/main.php?search=${encodeURIComponent(searchTerm)}`);
+        
+
+        // const response = await fetch(`http://localhost/pharmasy/back_end/main.php?search=${encodeURIComponent(searchTerm)}`);
         
         if (!response.ok) {
             throw new Error('Network response was not ok');
@@ -35,7 +40,10 @@ export const addMedicenes = async ( medicine: Medicine ) => {
     console.log(mediceneData)
   
     try{
-        const response = await fetch("http://localhost/pharmasy/back_end/main.php", {
+        //Ali path
+        // const response = await fetch(`http://localhost/projects/pharmacymanagementsystem/pharmacy-management-system/back_end/main.php`);
+        const response = await fetch("http://localhost/projects/pharmacymanagementsystem/pharmacy-management-system/back_end/main.php", {
+        // const response = await fetch("http://localhost/pharmasy/back_end/main.php", {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json'
