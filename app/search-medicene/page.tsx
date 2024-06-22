@@ -31,7 +31,7 @@ const EditeMedicene = () => {
       const result = await response.json();
       if (result.status === "success") {
         setMedicines(result.data);
-        setInputValues(result.data.map(() => 1)); // Initialize input values
+        // setInputValues(result.data.map(() => 1)); // Initialize input values
       } else {
         throw new Error("Failed to retrieve medicines: " + result.message);
       }
