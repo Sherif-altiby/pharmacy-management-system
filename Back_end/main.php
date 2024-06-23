@@ -28,8 +28,8 @@ try {
 
     switch ($_SERVER['REQUEST_METHOD']) {
         case 'POST':
-            if (isset($data['name'], $data['Box_Amount'], $data['Tape_Amount'], $data['Tape_Price'], $data['Expire'], $data['barcode'])) {
-                $name = htmlspecialchars(strip_tags($data['name']));
+            if (isset($data['Name'], $data['Box_Amount'], $data['Tape_Price'], $data['Tape_Amount'], $data['Expire'], $data['barcode'])) {
+                $name = htmlspecialchars(strip_tags($data['Name']));
                 $Box_Amount = floatval($data['Box_Amount']);
                 $Tape_Amount = intval($data['Tape_Amount']);
                 $Tape_Price = floatval($data['Tape_Price']);
