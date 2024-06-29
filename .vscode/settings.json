@@ -1,0 +1,5 @@
+{
+    "python.analysis.extraPaths": [
+        "./Back_end/AI/table-transformer-main/detr"
+    ]
+}
